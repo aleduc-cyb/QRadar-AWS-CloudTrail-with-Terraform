@@ -1,3 +1,15 @@
+# Name of the queue
+output "queue_name" {
+  description = "SQS Queue for events"
+  value       = aws_sqs_queue.qradar_queue.name
+}
+
+# Name of the queue
+output "bucket_name" {
+  description = "Cloudtrail bucket name for events"
+  value       = aws_s3_bucket.cloudtrail_bucket.bucket
+}
+
 # Name of the key
 output "access_key_id" {
   description = "AWS access key ID created for user"
