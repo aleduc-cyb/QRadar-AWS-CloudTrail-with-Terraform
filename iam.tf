@@ -1,3 +1,8 @@
+### This file contains all the resources related to IAM
+### It creates a user, a group, a policy
+### It attaches the policy to the group and puts the user in the group
+### It then generates an access key for the user
+
 # Get the account ID
 data "aws_caller_identity" "current" {}
 locals {
@@ -43,6 +48,15 @@ resource "aws_iam_policy" "qradar_policy" {
 resource "aws_iam_group_policy_attachment" "qradar_attach_policy" {
   group      = aws_iam_group.qradar_group.name
   policy_arn = aws_iam_policy.qradar_policy.arn
+}
+
+# Add the user to the group
+resource "aws_iam_user_group_membership" "qradar_membership" {
+  user = aws_iam_user.qradar_user.name
+
+  groups = [
+    aws_iam_group.qradar_group.name
+  ]
 }
 
 # Create an access key for this uesr

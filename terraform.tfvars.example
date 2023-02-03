@@ -1,0 +1,7 @@
+region = ""
+qradar_user = ""
+qradar_group = ""
+qradar_policy = ""
+bucket_name = ""
+queue_name = ""
+trail_name = ""

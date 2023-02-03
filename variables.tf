@@ -25,7 +25,6 @@ variable "qradar_policy" {
 variable "bucket_name" {
   type        = string
   description = "Name of the bucket in which to drop logs"
-  default     = "cloudtrailbucket1684648786"
 }
 
 variable "queue_name" {

@@ -1,3 +1,6 @@
+### This file creates the SQS queue to manage the events
+### The policy is set so that only the bucket can send messages to this queue
+
 resource "aws_sqs_queue" "qradar_queue" {
   name                       = var.queue_name
   visibility_timeout_seconds = 60
